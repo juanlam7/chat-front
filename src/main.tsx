@@ -1,5 +1,5 @@
-import { AuthContextProvider } from "@/context/AuthContext.tsx";
-import { SocketContextProvider } from "@/context/SocketContext.tsx";
+import { AuthContextProvider } from "@/context/AuthContextProvider";
+import { SocketContextProvider } from "@/context/SocketContextProvider";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

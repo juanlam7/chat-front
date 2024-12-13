@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext } from "react";
 
 interface AuthContextType {
   authUser: any;
@@ -16,22 +16,9 @@ export const AuthContext = createContext<AuthContextType>(
 );
 
 export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuthContext must be used within a AuthContextProvider");
+  }
   return useContext(AuthContext);
-};
-
-interface AuthContextProviderProps {
-  children: ReactNode;
-}
-
-export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
-  const [authUser, setAuthUser] = useState(() => {
-    const storedUser = localStorage.getItem("chat-user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
-
-  return (
-    <AuthContext.Provider value={{ authUser, setAuthUser }}>
-      {children}
-    </AuthContext.Provider>
-  );
 };
