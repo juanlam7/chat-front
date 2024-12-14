@@ -3,7 +3,7 @@ import { Socket } from "socket.io-client";
 
 interface SocketContextType {
   socket: Socket | null;
-  onlineUsers: Array<{ id: string; username: string }>;
+  onlineUsers: string[];
 }
 
 export const SocketContext = createContext<SocketContextType | undefined>(

@@ -11,9 +11,7 @@ export const SocketContextProvider = ({
   children,
 }: SocketContextProviderProps) => {
   const [socket, setSocket] = useState<Socket | null>(null);
-  const [onlineUsers, setOnlineUsers] = useState<
-    Array<{ id: string; username: string }>
-  >([]);
+  const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const { authUser } = useAuthContext();
 
   useEffect(() => {
