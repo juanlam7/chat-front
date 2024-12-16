@@ -1,7 +1,7 @@
 import useLogout from "@/hooks/useLogout";
 import { Dispatch, SetStateAction, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
-import { TiEye } from "react-icons/ti";
+import { FiEyeOff } from "react-icons/fi";
 import LogoutModal from "./LogoutModal";
 
 interface ISidebarFooter {
@@ -29,7 +29,7 @@ export default function SidebarFooter({
     >
       <FooterButton
         onClick={() => setShowSidebar(!showSidebar)}
-        icon={<TiEye className="text-xl text-white" />}
+        icon={<FiEyeOff className="text-xl text-white" />}
         text="Hide Sidebar"
       />
 

@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useEffect, useState } from "react";
-import { TiEye } from "react-icons/ti";
+import { SlArrowLeft } from "react-icons/sl";
 import Conversations from "./Conversations";
 import SidebarFooter from "./Footer";
 import SearchInput from "./SearchInput";
@@ -16,7 +16,7 @@ const Sidebar = () => {
   const toggleSidebar = () => setShowSidebar((prev) => !prev);
 
   const sidebarClasses = showSidebar
-    ? "w-[18.75rem] flex-none h-full"
+    ? "w-[16.75rem] sm:w-[18.75rem] flex-none h-full"
     : "w-0 overflow-hidden";
 
   return (
@@ -43,11 +43,10 @@ const Sidebar = () => {
 const SidebarToggleButton = ({ onClick }: { onClick: () => void }) => (
   <div
     onClick={onClick}
-    className="cursor-pointer h-8 w-32 bg-sky-500 transition ease-in duration-150 
-        absolute left-full top-1 rounded-tr-lg rounded-br-lg flex items-center justify-center"
+    className="cursor-pointer h-8 w-8 bg-sky-500 transition ease-in duration-150 
+        absolute left-full bottom-4 rounded-tr-lg rounded-br-lg flex items-center justify-center"
   >
-    <TiEye className="text-xl text-white" />
-    <p className="ml-2 text-white text-sm">Open Sidebar</p>
+    <SlArrowLeft className="text-xs text-white" />
   </div>
 );
 
