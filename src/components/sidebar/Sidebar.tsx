@@ -43,10 +43,11 @@ const Sidebar = () => {
 const SidebarToggleButton = ({ onClick }: { onClick: () => void }) => (
   <div
     onClick={onClick}
-    className="cursor-pointer h-10 w-10 bg-sky-500 transition ease-in duration-150 
-        absolute left-full bottom-16 rounded-tr-full rounded-br-full flex items-center justify-center"
+    className="cursor-pointer h-8 w-32 bg-sky-500 transition ease-in duration-150 
+        absolute left-full top-1 rounded-tr-lg rounded-br-lg flex items-center justify-center"
   >
     <TiEye className="text-xl text-white" />
+    <p className="ml-2 text-white text-sm">Open Sidebar</p>
   </div>
 );
 

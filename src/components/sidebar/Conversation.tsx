@@ -6,10 +6,9 @@ import useConversation, {
 interface ConversationProps {
   conversation: TypeConversation;
   lastIdx: boolean;
-  emoji: string;
 }
 
-const Conversation = ({ conversation, lastIdx, emoji }: ConversationProps) => {
+const Conversation = ({ conversation, lastIdx }: ConversationProps) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   const isSelected = selectedConversation?._id === conversation._id;
@@ -33,7 +32,7 @@ const Conversation = ({ conversation, lastIdx, emoji }: ConversationProps) => {
         <div className="flex flex-col flex-1">
           <div className="flex gap-3 justify-between">
             <p className="font-bold text-gray-200">{conversation.fullName}</p>
-            <span className="text-xl">{emoji}</span>
+            <span className="text-xs">Fecha</span> {/* TODO: Should be here the date of the last mensaje */}
           </div>
         </div>
       </div>

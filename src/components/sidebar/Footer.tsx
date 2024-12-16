@@ -1,7 +1,8 @@
 import useLogout from "@/hooks/useLogout";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { TiEye } from "react-icons/ti";
+import LogoutModal from "./LogoutModal";
 
 interface ISidebarFooter {
   showSidebar: boolean;
@@ -13,6 +14,12 @@ export default function SidebarFooter({
   setShowSidebar,
 }: ISidebarFooter) {
   const { loading, logout } = useLogout();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleLogout = () => {
+    setIsModalOpen(false);
+    logout();
+  };
 
   return (
     <footer
@@ -23,7 +30,7 @@ export default function SidebarFooter({
       <FooterButton
         onClick={() => setShowSidebar(!showSidebar)}
         icon={<TiEye className="text-xl text-white" />}
-        text="Hide sidebar"
+        text="Hide Sidebar"
       />
 
       {loading ? (
@@ -32,9 +39,17 @@ export default function SidebarFooter({
         </div>
       ) : (
         <FooterButton
-          onClick={logout}
+          onClick={() => setIsModalOpen(true)}
           icon={<BiLogOut className="w-6 h-6 text-white" />}
           text="Logout"
+        />
+      )}
+
+      {isModalOpen && (
+        <LogoutModal
+          isModalOpen={isModalOpen}
+          handleLogout={handleLogout}
+          setIsModalOpen={setIsModalOpen}
         />
       )}
     </footer>
