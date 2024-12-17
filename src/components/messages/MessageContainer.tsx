@@ -12,6 +12,10 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
+  // const backgroundChat = selectedConversation
+  //   ? "relative bg-[url('/bg.png')] bg-no-repeat bg-cover bg-center"
+  //   : "";
+
   return (
     <div className="overflow-x-auto overflow-y-auto flex w-full">
       <div className="min-w-[18.5rem] shrink-0 w-full flex flex-col">
@@ -19,9 +23,9 @@ const MessageContainer = () => {
           <NoChatSelected />
         ) : (
           <>
-            <div className="bg-slate-500 px-4 py-2 mb-2">
+            <div className="bg-gray-700 px-4 py-2 mb-2">
               <span className="label-text">To:</span>{" "}
-              <span className="text-gray-900 font-bold">
+              <span className="text-white font-bold">
                 {selectedConversation.fullName}
               </span>
             </div>
@@ -33,6 +37,7 @@ const MessageContainer = () => {
     </div>
   );
 };
+
 export default MessageContainer;
 
 const NoChatSelected = () => {
