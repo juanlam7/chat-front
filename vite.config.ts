@@ -2,6 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const apiUrl = process.env.VITE_API_URL;
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,8 +16,8 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Chat App",
-        short_name: "Chat App",
+        name: "OurChat",
+        short_name: "OurChat",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
@@ -36,7 +41,9 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: apiUrl,
+        changeOrigin: true,
+        secure: false,
       },
     },
   },

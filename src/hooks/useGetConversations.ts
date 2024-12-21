@@ -1,10 +1,10 @@
-import { Conversation } from "@/zustand/useConversation";
+import { ConversationUser } from "@/zustand/useConversation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
-  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [conversations, setConversations] = useState<ConversationUser[]>([]);
 
   useEffect(() => {
     const getConversations = async () => {

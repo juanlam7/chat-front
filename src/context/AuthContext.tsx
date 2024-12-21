@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ConversationUser } from "@/zustand/useConversation";
 import { createContext, useContext } from "react";
 
 interface AuthContextType {
-  authUser: any;
-  setAuthUser: (user: any) => void;
+  authUser: ConversationUser | null;
+  setAuthUser: (user: ConversationUser | null) => void;
 }
 
 const defaultAuthContextValue: AuthContextType = {

@@ -10,18 +10,18 @@ export interface Message {
   shouldShake?: boolean;
 }
 
-export interface Conversation {
+export interface ConversationUser {
   _id: string;
   fullName: string;
   username: string;
-  password: string;
-  gender: "male" | "female";
+  password?: string;
+  gender?: "male" | "female";
   profilePic: string;
 }
 
 interface ConversationStore {
-  selectedConversation: Conversation | null;
-  setSelectedConversation: (selectedConversation: Conversation | null) => void;
+  selectedConversation: ConversationUser | null;
+  setSelectedConversation: (selectedConversation: ConversationUser | null) => void;
   messages: Message[];
   setMessages: (messages: Message[]) => void;
 }

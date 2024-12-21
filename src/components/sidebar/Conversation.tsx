@@ -1,6 +1,6 @@
 import { useSocketContext } from "@/context/SocketContext";
 import useConversation, {
-  type Conversation as TypeConversation,
+  type ConversationUser as TypeConversation,
 } from "@/zustand/useConversation";
 
 interface ConversationProps {

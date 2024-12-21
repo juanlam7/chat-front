@@ -6,6 +6,7 @@ import { SocketContext } from "./SocketContext";
 interface SocketContextProviderProps {
   children: ReactNode;
 }
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const SocketContextProvider = ({
   children,
@@ -16,7 +17,7 @@ export const SocketContextProvider = ({
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const socket = io(API_URL, {
         query: {
           userId: authUser._id,
         },
