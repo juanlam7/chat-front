@@ -2,6 +2,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "@/context/AuthContext";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 interface ISignUp {
   fullName: string;
   username: string;
@@ -32,7 +34,7 @@ const useSignup = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/signup", {
+      const res = await fetch(`${apiUrl}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -42,6 +44,7 @@ const useSignup = () => {
           confirmPassword,
           gender,
         }),
+        credentials: "include",
       });
 
       const data = await res.json();
